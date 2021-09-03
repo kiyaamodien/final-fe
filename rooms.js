@@ -14,8 +14,9 @@ function getRooms() {
           <div class="room-card">
             <h3 class="room-name">${room[1]}</h3>
             <p class="room-type">${room[2]}</p>
-            <p class="price">${room[3]}</p>
-            <p class="room-view">${room[4]}</p>
+            <p class="room-image">${room[3]}
+            <p class="price">${room[4]}</p>
+            <p class="room-view">${room[5]}</p>
           </div>
         `;
       });
@@ -24,6 +25,28 @@ function getRooms() {
 
 getRooms();
 
+// delete rooms
+// function deleteRoom() {
+
+//   let roomId =
+//   fetch(`https://hotel-p.herokuapp.com/delete-room/${roomId}`, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       console.log(res);
+//       if (!res.data) {
+//         document.querySelector("#error"), (innerHTML = "user not found");
+//         return;
+//       } else {
+//         localStorage.setItem("user", JSON.stringify(res.data));
+//         window.location.href = "./rooms.html";
+//       }
+//     });
+// }
 // function showRooms(products) {
 //   let container = document.querySelector("#rooms");
 //   container.innerHTML += ``;
