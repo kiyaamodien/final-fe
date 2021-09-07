@@ -14,10 +14,15 @@
     <div class="filters">
        <!-- onsubmit="event.preventDefault(); searchedForRooms();"> -->
       <input type="text" id="searchTerm" required >
-      <button onclick="searchedForRooms()">Search</button>
-  
+      <button onclick="searchedForRooms()">Search</button>  
     </div>
-    <div id="rooms"></div>
+    <div id="rooms-container"></div>
+    <div id="rooms">
+      <div class="rooms-bg"></div>
+    </div>
+    <button onclick="toggleBooking()" id="booking-button">Booking
+      </button>
+      <button onclick="deleteRoom()"></button>
     <script src="rooms.js"></script>
   </body>
 </html>
