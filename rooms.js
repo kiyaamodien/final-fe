@@ -30,50 +30,56 @@ function getRooms() {
             <img class="room-image" src='${room[3]}'>/
             <p class="price">${room[4]}</p>
             <p class="room-view">View/${room[5]}</p>
-            <button onclick="deleteRoom()"></button>
+            <button class="delete_r" onclick="deleteRoom(${room[0]})"></button>
           </div>
           </button>
         `;
       });
     });
+  let totalPrice = cart.reduce(
+    (total, item) => total + parseInt(item, price),
+    0
+  );
+  container.innerHTML += `<h3> Total is: ${totalPrice} </h3>`;
+}
+
+//run delete_rooms function
+document
+  .querySelectorAll(".delete_r")
+  .forEach((button) => button.addEventListener("click", remove));
+
+// remove room in cart
+function delete_r(e) {
+  let id = e.target.id;
+  for (let item in carts) {
+    if (id == carts[item][0]) {
+      carts.splice(item, 1);
+      window.localStorage.setItem("cart", JSON.stringify(carts));
+      renderBooking();
+    }
+  }
 }
 
 getRooms();
 
-function deleteRoom() {
-  let roomId = fetch(`https://hotel-p.herokuapp.com/delete-room/${roomId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      if (!res.data) {
-        document.querySelector("#error"), (innerHTML = "user not found");
-        return;
-      } else {
-        localStorage.setItem("user", JSON.stringify(res.data));
-        window.location.href = "./rooms.html";
-      }
-    });
-}
-// function showRooms(products) {
-//   let container = document.querySelector("#rooms");
-//   container.innerHTML += ``;
-
-//   rooms.forEach((rooms) => {
-//     container.innerHTML += `
-//     <div class="room-card">
-//         <img src="room-img" src="${room.image}" alt="">
-//         <h3 class="room-name">${room.name}</h3>
-//         <p class="room-type">${room.type}</p>
-//         <p class="price">R${price}</p>
-//         <p class="room-view">${room.view}</p>
-//       </div>
-//       `;
-//   });
+// function deleteRoom(roomId) {
+//   fetch(`https://hotel-p.herokuapp.com/delete-room/${roomId}`, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       console.log(res);
+//       if (!res.data) {
+//         document.querySelector("#error"), (innerHTML = "user not found");
+//         return;
+//       } else {
+//         localStorage.setItem("user", JSON.stringify(res.data));
+//         window.location.href = "./rooms.html";
+//       }
+//     });
 // }
 
 function addToCart(id) {
@@ -83,6 +89,17 @@ function addToCart(id) {
   console.log(room);
   carts.push(room);
   console.log(carts);
+}
+
+function removeCart(id) {
+  if (id == carts[0]) {
+    carts.pop();
+  }
+}
+
+function checkout() {
+  let cart = "";
+  alert("payment successful");
 }
 
 function searchedForRooms() {
@@ -110,21 +127,7 @@ function toggleCreaateRoomModal() {
   document.querySelector("#create-room-modal").classList.toggle("active");
 }
 
-function renderBooking(bookingItems) {
-  let bookingContainer = document.querySelector(".rooms-bg");
-  bookingContainer.innerHTML = "";
-  carts.forEach((item) => {
-    bookingContainer.innerHTML += `
-    <div class="room-carts">
-      <p>${item[1]}</p>
-    </div>
-    
-    `;
-  });
-}
-
-function toggleBooking() {
-  document.querySelector("#rooms").classList.toggle("active");
+function renderBooking() {
   let bookingContainer = document.querySelector(".rooms-bg");
   bookingContainer.innerHTML = "";
   carts.forEach((item) => {
@@ -135,8 +138,18 @@ function toggleBooking() {
       <img class="room-image" src='${item[3]}'>/
       <p>${item[4]}</p>
       <p>${item[5]}</p>
+      <button id='${item[0]}' class='deletefrmcrt'>Delete</button>
     </div>
+    
     
     `;
   });
+  document
+    .querySelectorAll(".deletefrmcrt")
+    .forEach((button) => button.addEventListener("click", delete_r));
+}
+
+function toggleBooking() {
+  document.querySelector("#rooms").classList.toggle("active");
+  renderBooking();
 }
