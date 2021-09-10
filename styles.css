@@ -67,6 +67,14 @@ img {
   right: 5%;
   bottom: 5%;
   z-index: 10;
+  border-radius: 20px;
+  padding: 10px;
+  color: antiquewhite;
+  background-color: #1a1b1b;
+}
+
+#booking-button:hover {
+  background-color: rgb(68, 68, 70);
 }
 
 #rooms {
@@ -170,7 +178,7 @@ img {
 }
 
 .nav-links li a:hover {
-  color: orange;
+  color: antiquewhite;
   background-color: #1a1b1b;
 }
 

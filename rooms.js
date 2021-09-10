@@ -37,7 +37,7 @@ function getRooms() {
       });
     });
   let totalPrice = cart.reduce(
-    (total, item) => total + parseInt(item, price),
+    (total, item) => total + room[2](item, price),
     0
   );
   container.innerHTML += `<h3> Total is: ${totalPrice} </h3>`;
