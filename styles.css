@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700;800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Kaisei Tokumin";
 }
 
 .body {
@@ -9,12 +12,27 @@
   display: flex;
   flex-direction: column;
   display: flex;
-  background-color: black;
 }
 
 form {
   align-self: center;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  padding: 100px;
+  box-sizing: border-box;
+  background-color: #1a1b1b;
+  color: antiquewhite;
+  border-radius: 20px;
+}
+
+input {
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
 }
 
 #create-room-modal.actve {
@@ -28,7 +46,7 @@ form {
 .room-s {
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: #219ebc;
+  background-color: #1a1b1b;
 }
 
 img {
@@ -39,6 +57,9 @@ img {
 .room-s {
   height: 300px;
   width: 300px;
+  color: antiquewhite;
+  transition: 1s ease;
+  border-radius: 20px;
 }
 
 #booking-button {
@@ -62,17 +83,97 @@ img {
 #rooms.active {
   display: flex;
   right: 0%;
+  background-color: #faebd7;
 }
 
 .room-carts {
   border: 1px solid;
-  border-color: black;
+  background: #1a1b1b;
+  border-color: #1a1b1b;
+  color: antiquewhite;
 }
 
 #rooms-container {
-  color: #caf0f8;
+  margin: 100px;
 }
 
 .room-s:hover {
-  color: #90e0ef;
+  background-color: #444444;
+}
+
+.payment {
+  border: 1px solid;
+  height: 8%;
+  margin: 4px;
+}
+
+.sign {
+  flex-direction: column;
+}
+
+#greeting {
+  background-color: #1a1b1b;
+  color: antiquewhite;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.filters {
+  background-color: #1a1b1b;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  margin-right: 265px;
+  padding: 100px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 20px;
+  background-color: #1a1b1b;
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  color: white;
+  font-size: 16px;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #1a1b1b;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #1a1b1b;
+  padding: 20px;
+  transition: all 0.8 linear;
+}
+
+.nav-links li a:hover {
+  color: orange;
+  background-color: #1a1b1b;
+}
+
+.so {
+  margin-bottom: 5px;
 }

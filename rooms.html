@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rooms</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b3cbf68572.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-      <button onclick="logout()">Sign Out</button>
+    <nav id="navbard">
+      <ul class="nav-links">
+        <li><a href="./index.html">Login</a></li>
+        <li><a href="./signup.html">Sign in</a></li>
+        <li><a href="./rooms.html">Rooms</a></li>
+      </ul>
+    </nav>
+      <button class="so" onclick="logout()">Sign Out</button>
     </div>
     <h1 id="greeting"></h1>
     <div class="filters">
@@ -18,12 +29,15 @@
     </div>
     <div id="rooms-container"></div>
     <div id="rooms">
-       <button onclick="checkout()"></button>
+       <button onclick="checkout()" class="payment">confirm payment</button>
       <div class="rooms-bg" toggleBooking()></div>
     </div>
     <button onclick="toggleBooking()" id="booking-button">Booking
     </button>
     <button onclick="delete_r()"></button>
     <script src="rooms.js"></script>
+    <div class="footer">
+      <i class="far fa-copyright"></i> Developer Kiyaamodien Khan||Contact:0216335864
+    </div>
   </body>
 </html>

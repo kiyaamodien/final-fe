@@ -25,7 +25,7 @@ function login() {
     .then((res) => {
       console.log(res);
       if (!res.data) {
-        document.querySelector("#error"), (innerHTML = "user not found");
+        document.querySelector("#response").innerHTML = "user not found";
         return;
       } else {
         localStorage.setItem("user", JSON.stringify(res.data));

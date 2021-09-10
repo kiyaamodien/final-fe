@@ -14,7 +14,7 @@ function getRooms() {
       container.innerHTML = "";
       document.querySelector(
         "#greeting"
-      ).innerHTML = `Hi there ${user.username}`;
+      ).innerHTML = `Hi there ${user.username}, welcome to Easy Hotel Booking :)`;
       rooms.forEach((room) => {
         container.innerHTML += `
         <button onclick="addToCart(${room[0]})" class="room-s">Click on Room to add to Cart
@@ -103,19 +103,26 @@ function checkout() {
 }
 
 function searchedForRooms() {
-  let searchTerm = document.querySelector("#searchTerm").Value;
+  let searchTerm = document.querySelector("#searchTerm").value;
+
   console.log(searchTerm);
+  console.log(rooms);
 
   let searchedRooms = rooms.filter((room) =>
     room[1].toLowerCase().includes(searchTerm.toLowerCase())
   );
+  console.log("!!!");
   console.log(searchedRooms);
-  getRooms(searchedRooms);
+  renderBooking(searchedRooms);
 
   if (searchedRooms.length == 0) {
     document.querySelector("#rooms").innerHTML =
       "<h2>Unable to find room or, room unavailable<h2>";
-  } else getRooms(searchedRooms);
+  } else renderBooking(searchedRooms);
+  {
+    // querySelector("#rooms-container").innerHTML = "";
+    renderBooking(searchedRooms);
+  }
 }
 
 function logout() {
